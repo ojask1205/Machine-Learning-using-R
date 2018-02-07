@@ -1,0 +1,10 @@
+setwd("C:/Users/Admin/Desktop")
+a=read.csv("TrainDataLoan.csv")
+a
+summary(a)
+a$LoanAmount[is.na(a$LoanAmount)]<-mean(a$LoanAmount,na.rm=TRUE)
+summary(a)
+#boxplot(a$LoanAmount)
+levels(a$Gender)[levels(a$Gender)==""]<-NA
+summary(a)
+boxplot(LoanAmount~Gender,data=a)
